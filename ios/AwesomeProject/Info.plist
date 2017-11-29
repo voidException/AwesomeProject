@@ -40,8 +40,17 @@
 	<false/>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
+	<key>item0</key>
+	<string>FontAwesome.ttf</string>
+	<key>item1</key>
+	<string>Foundation.ttf</string>
+	<key>item2</key>
+	<string>Ionicons.ttf</string>
+	<key>item3</key>
+	<string>Materiallcons.ttf</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
-	<!--See http://ste.vn/2015/06/10/configuring-app-transport-security-ios-9-osx-10-11/ -->
 	<dict>
 		<key>NSExceptionDomains</key>
 		<dict>

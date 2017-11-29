@@ -9,9 +9,12 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View, Button
 } from 'react-native';
+import { StackNavigator } from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
+console.log(Ionicons)
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -19,23 +22,49 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
-export default class App extends Component<{}> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
-    );
-  }
-}
+const HomeScreen = ({navigation}) => (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Home Screen</Text>
+        <Button
+            onPress={() => navigation.navigate('Details')}
+            title="Go to details"
+        />
+    </View>
+);
+
+const DetailsScreen = () => (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+    </View>
+);
+
+const App = StackNavigator({
+    Home: {
+        screen: HomeScreen,
+        navigationOptions: {
+            headerTitle: 'Home',
+            tabBarIcon: ({ tintColor, focused }) => (
+                <Ionicons
+                    name={focused ? 'ios-home' : 'ios-home-outline'}
+                    size={26}
+                    style={{ color: tintColor }}
+                />
+            ),
+        },
+    },
+    Details: {
+        screen: DetailsScreen,
+        navigationOptions: {
+            headerTitle: 'Details',
+        },
+    },
+});
+
+export default App;
+
+
+
+
 
 const styles = StyleSheet.create({
   container: {
