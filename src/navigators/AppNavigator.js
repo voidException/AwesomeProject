@@ -16,6 +16,7 @@ export const AppNavigator = StackNavigator({
 
 //终极入口，加入了redux支持
 const AppWithNavigationState = ({ dispatch, nav }) => (
+
   <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
 );
 
